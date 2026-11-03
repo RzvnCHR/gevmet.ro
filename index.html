@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,34 +26,42 @@
 <meta property="og:image" content="https://gevmet.ro/og-image.jpg">
 <link rel="icon" href="favicon.png" type="image/x-icon">
 
+
+<style>
+.navbar{width:100%;max-width:1500px;gap:clamp(12px,1.8vw,28px)}
+.nav-right{display:flex;align-items:center;gap:14px}
+.lang-switch{display:flex;align-items:center;gap:5px;white-space:nowrap}
+.lang-switch button{border:1px solid #999;background:transparent;color:#000;padding:7px 9px;border-radius:5px;cursor:pointer;font-weight:700;font-size:12px}
+.lang-switch button.active{background:#000;color:#fff;border-color:#000}
+header.scrolled .lang-switch button{color:#fff;border-color:#777}
+header.scrolled .lang-switch button.active{background:#fff;color:#000}
+@media(max-width:1100px){.navbar{gap:12px;padding-left:8px;padding-right:8px}#menu{gap:10px}#menu a{font-size:12px}}
+@media(max-width:768px){.nav-right{position:absolute;right:62px;top:50%;transform:translateY(-50%)}.nav-right .cta{display:none}nav ul{top:75px}#menu{gap:16px}#menu a{font-size:1.5rem}}
+</style>
+
 </head>
 <body>
 
 
 <header>
   <nav class="navbar">
-    
-    <!-- STÂNGA -->
-    <div class="logo">
-      gevmet.ro
-    </div>
-
-    <!-- MIJLOC -->
+    <a class="logo" href="index.html">gevmet.ro</a>
     <ul id="menu">
-      <li><a href="#hero">Acasă</a></li>
-      <li><a href="#despre">Despre noi</a></li>
-      <li><a href="#servicii">Servicii</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#hero" data-ro="Acasă" data-en="Home">Acasă</a></li>
+      <li><a href="ansamble-sudate.html" data-ro="Ansamble sudate" data-en="Welded assemblies">Ansamble sudate</a></li>
+      <li><a href="obiecte-decorative.html" data-ro="Obiecte decorative" data-en="Decorative objects">Obiecte decorative</a></li>
+      <li><a href="#despre" data-ro="Despre noi" data-en="About us"><span data-ro="Despre noi" data-en="About us">Despre noi</span></a></li>
+      <li><a href="#servicii" data-ro="Servicii" data-en="Services">Servicii</a></li>
+      <li><a href="#contact" data-ro="Contact" data-en="Contact">Contact</a></li>
     </ul>
-
-    <!-- DREAPTA -->
-    <div class="cta">
-      <a href="#contact" class="btn-oferta btn--primary">Cere o ofertă</a>
+    <div class="nav-right">
+      <div class="lang-switch" aria-label="Language">
+        <button type="button" class="active" data-lang="ro">RO</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+      <div class="cta"><a href="#contact" class="btn-oferta btn--primary" data-ro="Cere o ofertă" data-en="Request a quote">Cere o ofertă</a></div>
     </div>
-
-    <!-- MOBILE -->
     <div class="hamburger" onclick="toggleMenu()">☰</div>
-
   </nav>
 </header>
 
@@ -94,20 +102,20 @@
 
 
 <section id="despre">
-<h2 class="wow">Despre noi</h2>
+<h2 class="wow"><span data-ro="Despre noi" data-en="About us">Despre noi</span></h2>
 <p class="wow p1">Gevmet SRL este o întreprindere socială specializată în debitare laser și confecții metalice.
 Punem accent pe calitate, eficiență și profesionalism, oferind soluții moderne adaptate cerințelor fiecărui client.</p>
 <div class="grid">
 
-<div class="wow card"><h3>De ce Gevmet? ↙️</h3>
-    <p>✔ Precizie ridicată și repetabilitate<br>
+<div class="wow card"><h3><span data-ro="De ce Gevmet? ↙️" data-en="Why Gevmet? ↙️">De ce Gevmet? ↙️</span></h3>
+    <p><span data-ro="✔ Precizie ridicată și repetabilitate" data-en="✔ High precision and repeatability">✔ Precizie ridicată și repetabilitate</span><br>
 ✔ Termene de execuție rapide<br>
 ✔ Flexibilitate – de la proiecte simple la comenzi complexe<br>
 ✔ Colaborare cu parteneri specializați pentru servicii complete<br>
 ✔ Impact social real – fiecare comandă susține integrarea pe piata muncii a unor persoane din medii vulnerabile</p>
 </div>
 
-<div class="wow card"><h3>Lucrăm cu 🤝</h3>
+<div class="wow card"><h3><span data-ro="Lucrăm cu 🤝" data-en="We work with 🤝">Lucrăm cu 🤝</span></h3>
     <p>
 ✔ Firme din construcții și industrie<br>
 ✔ Ateliere de producție<br>
@@ -122,7 +130,7 @@ Punem accent pe calitate, eficiență și profesionalism, oferind soluții moder
 
 <div id="servicii" class="services__container">
 
-  <h2 class="wow services__title">Serviciile noastre</h2>
+  <h2 class="wow services__title"><span data-ro="Serviciile noastre" data-en="Our services">Serviciile noastre</span></h2>
   <p class="wow services__subtitle">
     Debitare, confecții metalice și sudură — plus prelucrări suplimentare la cerere.
   </p>
@@ -131,30 +139,30 @@ Punem accent pe calitate, eficiență și profesionalism, oferind soluții moder
 
     <!-- Servicii principale -->
     <div class="wow services__block">
-      <h3 class="services__blockTitle">Servicii principale</h3>
+      <h3 class="services__blockTitle"><span data-ro="Servicii principale" data-en="Main services">Servicii principale</span></h3>
 
       <div class="services__cards">
         <article class="serviceCard">
           <div class="serviceCard__icon">⚙️</div>
           <div>
-            <h4 class="serviceCard__title">Debitare laser CNC</h4>
-            <p class="serviceCard__text">Oțel · Inox · Aluminiu</p>
+            <h4 class="serviceCard__title"><span data-ro="Debitare laser CNC" data-en="CNC laser cutting">Debitare laser CNC</span></h4>
+            <p class="serviceCard__text"><span data-ro="Oțel · Inox · Aluminiu" data-en="Steel · Stainless steel · Aluminium">Oțel · Inox · Aluminiu</span></p>
           </div>
         </article>
 
         <article class="serviceCard">
           <div class="serviceCard__icon">🔩</div>
           <div>
-            <h4 class="serviceCard__title">Confecții metalice la comandă</h4>
-            <p class="serviceCard__text">Piese · Subansamble · Structuri metalice</p>
+            <h4 class="serviceCard__title"><span data-ro="Confecții metalice la comandă" data-en="Custom metal fabrication">Confecții metalice la comandă</span></h4>
+            <p class="serviceCard__text"><span data-ro="Piese · Subansamble · Structuri metalice" data-en="Parts · Assemblies · Metal structures">Piese · Subansamble · Structuri metalice</span></p>
           </div>
         </article>
 
         <article class="serviceCard">
           <div class="serviceCard__icon">🔥</div>
           <div>
-            <h4 class="serviceCard__title">Sudură MIG/MAG</h4>
-            <p class="serviceCard__text">Execuție precisă</p>
+            <h4 class="serviceCard__title"><span data-ro="Sudură MIG/MAG" data-en="MIG/MAG welding">Sudură MIG/MAG</span></h4>
+            <p class="serviceCard__text"><span data-ro="Execuție precisă" data-en="Precision manufacturing">Execuție precisă</span></p>
           </div>
         </article>
       </div>
@@ -180,8 +188,8 @@ Punem accent pe calitate, eficiență și profesionalism, oferind soluții moder
   <!-- CTA -->
   <div class="wow services__cta">
     <div>
-      <h3>Ai un proiect sau o idee?</h3>
-      <p>Trimite-ne detaliile tale și revenim rapid cu o ofertă personalizată.</p>
+      <h3><span data-ro="Ai un proiect sau o idee?" data-en="Do you have a project or an idea?">Ai un proiect sau o idee?</span></h3>
+      <p><span data-ro="Trimite-ne detaliile tale și revenim rapid cu o ofertă personalizată." data-en="Send us the details and we will get back to you quickly with a tailored quote.">Trimite-ne detaliile tale și revenim rapid cu o ofertă personalizată.</span></p>
     </div>
 
     <div class="services__ctaActions">
@@ -201,13 +209,13 @@ Punem accent pe calitate, eficiență și profesionalism, oferind soluții moder
 
             <div class="wow contact__card">
 
-                <h3>Date de contact</h3>
+                <h3><span data-ro="Date de contact" data-en="Contact details">Date de contact</span></h3>
 
-                <p><strong>Administrator:</strong> George Chiriac</p>
-                <p><strong>Telefon:</strong> 0758 301 841</p>
-                <p><strong>Email:</strong> gevmet@outlook.com</p>
-                <p><strong>Oraș:</strong> Galați</p>
-                <p><strong>Adresă:</strong> Bld. George Coșbuc, nr. 217, Hala 4</p>
+                <p><strong><span data-ro="Administrator:" data-en="Administrator:">Administrator:</span></strong> George Chiriac</p>
+                <p><strong><span data-ro="Telefon:" data-en="Phone:">Telefon:</span></strong> 0758 301 841</p>
+                <p><strong><span data-ro="Email:" data-en="Email:">Email:</span></strong> gevmet@outlook.com</p>
+                <p><strong><span data-ro="Oraș:" data-en="City:">Oraș:</span></strong> Galați</p>
+                <p><strong><span data-ro="Adresă:" data-en="Address:">Adresă:</span></strong> Bld. George Coșbuc, nr. 217, Hala 4</p>
 
                 <div class="contact__actions">
                     <a class="btn btn--whatsapp" 
@@ -362,6 +370,27 @@ lightbox.addEventListener('click', e => {
     live:         true        // monitorizează DOM-ul dinamic
   }).init();
 </script>
+
+<script>
+function setLanguage(lang) {
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-ro][data-en]").forEach(el => {
+    el.textContent = el.dataset[lang];
+  });
+  document.querySelectorAll(".lang-switch button").forEach(button => {
+    button.classList.toggle("active", button.dataset.lang === lang);
+  });
+  document.title = lang === "en"
+    ? "Laser Cutting | Gevmet SRL – CNC Metal Fabrication"
+    : "Debitare laser | Gevmet SRL – Confecții metalice CNC";
+  const topButton = document.getElementById("scrollTopBtn");
+  if (topButton) topButton.title = lang === "en" ? "Back to top" : "Înapoi sus";
+}
+document.querySelectorAll(".lang-switch button").forEach(button => {
+  button.addEventListener("click", () => setLanguage(button.dataset.lang));
+});
+</script>
+
 </body>
 
 </html>
