@@ -462,7 +462,6 @@ h2 {
 /* Grid principal */
 .services__grid{
     display:grid;
-    grid-template-columns:2fr 1fr;
     gap:30px;
 }
 
