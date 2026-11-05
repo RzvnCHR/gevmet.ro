@@ -1064,13 +1064,17 @@ header.scrolled .lang-switch button.active{background:#fff;color:#000}
 
 </style></head><body>
 
-    <script>
+   
+<script>
 (function () {
     const domain = "https://gevmet.ro";
 
-    // Păstrează URL-ul principal în bara de adrese
-    if (window.top === window.self && window.location.hostname === "gevmet.ro") {
-        history.replaceState(null, "", window.location.pathname + window.location.search);
+    // Păstrează doar domeniul în bara de adrese
+    if (
+        window.top === window.self &&
+        window.location.hostname === "gevmet.ro"
+    ) {
+        history.replaceState(null, "", "/");
     }
 
     // Interceptează navigarea între paginile HTML
@@ -1081,14 +1085,18 @@ header.scrolled .lang-switch button.active{background:#fff;color:#000}
 
         const url = new URL(link.href, window.location.href);
 
-        if (url.hostname === window.location.hostname &&
-            url.pathname.endsWith(".html")) {
+        if (
+            url.hostname === window.location.hostname &&
+            url.pathname.endsWith(".html")
+        ) {
             e.preventDefault();
-            window.location.href = domain + url.pathname + url.search + url.hash;
+            window.location.href =
+                domain + url.pathname + url.search + url.hash;
         }
     });
 })();
 </script>
+
     
 <header><nav class="navbar">
 <a class="logo" href="index.html">gevmet.ro</a>
