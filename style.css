@@ -100,7 +100,7 @@ a {
 
 #floatingCallBtn {
   position: fixed !important;
-  right: 20px !important;
+  right: 26px !important;
   bottom: 20px !important;
   width: 58px !important;
   height: 58px !important;
@@ -163,7 +163,7 @@ a {
   }
 
   #floatingCallBtn {
-    right: 16px !important;
+    right: 22px !important;
     bottom: 16px !important;
     width: 56px !important;
     height: 56px !important;
