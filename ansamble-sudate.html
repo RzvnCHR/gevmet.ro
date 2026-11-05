@@ -961,7 +961,11 @@ header.scrolled .lang-switch button.active{background:#fff;color:#000}
 .navbar{gap:clamp(18px,4vw,70px);width:100%;max-width:1500px}
 .nav-right{display:flex;align-items:center;gap:18px}
 .page-hero{min-height:72vh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;border-bottom:1px solid var(--accent);padding:120px 20px 60px}
-.page-hero:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(0,0,0,.82),rgba(0,0,0,.55));background-color:#242424}\n.page-hero .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}\n.page-hero-content{display:grid;grid-template-columns:.8fr 1.5fr;align-items:center;gap:25px}\n.page-hero-logo img{display:block;width:100%;max-width:320px;padding:20px;border-radius:16px}\n.page-hero-copy{min-width:0}
+.page-hero:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(0,0,0,.82),rgba(0,0,0,.55));background-color:#242424}
+.page-hero .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.page-hero-content{display:grid;grid-template-columns:.8fr 1.5fr;align-items:center;gap:25px}
+.page-hero-logo img{display:block;width:100%;max-width:320px;padding:20px;border-radius:16px}
+.page-hero-copy{min-width:0}
 .page-hero-content{position:relative;z-index:2;max-width:1100px;width:100%;padding:35px;background:#0009;border:1px solid var(--accent);color:#fff}
 .page-hero h1{font-size:clamp(2.2rem,5vw,4rem);line-height:1.08;color:#fff;margin-bottom:18px}
 .page-hero p{font-size:1.25rem;line-height:1.6;max-width:850px;color:#eee}
@@ -987,6 +991,26 @@ header.scrolled .lang-switch button.active{background:#fff;color:#000}
 @media(max-width:900px){.feature-grid{grid-template-columns:1fr 1fr}.process{grid-template-columns:1fr 1fr}.navbar{gap:15px}.nav-right{gap:8px}}
 @media(max-width:768px){.navbar{justify-content:space-between;padding:5px 10px}.nav-right{margin-right:40px}.lang-switch button{padding:6px}.page-hero-content{padding:28px 20px;grid-template-columns:1fr;text-align:center}.page-hero-logo img{max-width:210px;margin:auto}.page-hero{min-height:68vh}.feature-grid,.process{grid-template-columns:1fr}.page-cta{flex-direction:column;text-align:center}.cta{display:none}}
 
+
+/* Galerie foto Gevmet */
+.gevmet-gallery {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin:32px 0 8px;}
+.gevmet-gallery figure {overflow:hidden;border-radius:16px;border:1px solid #e3e3e3;background:#f5f5f5;}
+.gevmet-gallery img {display:block;width:100%;height:280px;object-fit:cover;transition:transform .35s ease;}
+.gevmet-gallery img:hover {transform:scale(1.035);}
+.gevmet-gallery--wide {margin:20px 0 35px;}
+.page-hero .hero-video {z-index:0;}
+.page-hero-content {position:relative;z-index:2;}
+.page-hero .hero-call-actions {align-items:center;}
+.page-hero .hero-call-actions .btn {padding:14px 24px;line-height:1.3;}
+.page-cta .services__ctaActions .btn {display:inline-flex;align-items:center;justify-content:center;padding:14px 24px;}
+@media(max-width:768px) {
+  .gevmet-gallery {grid-template-columns:1fr;gap:15px;}
+  .gevmet-gallery img {height:auto;aspect-ratio:4/3;object-fit:cover;}
+  .page-hero .hero-call-actions {justify-content:center;}
+  .page-hero .hero-call-actions a {width:100%;max-width:300px;}
+  .page-cta .services__ctaActions {width:100%;}
+}
+
 </style></head><body>
 
     <script>
@@ -995,7 +1019,7 @@ header.scrolled .lang-switch button.active{background:#fff;color:#000}
 
     // Păstrează URL-ul principal în bara de adrese
     if (window.top === window.self && window.location.hostname === "gevmet.ro") {
-        history.replaceState(null, "", "/");
+        history.replaceState(null, "", window.location.pathname + window.location.search);
     }
 
     // Interceptează navigarea între paginile HTML
@@ -1027,10 +1051,11 @@ header.scrolled .lang-switch button.active{background:#fff;color:#000}
 </ul>
 <div class="nav-right"><div class="lang-switch" aria-label="Language">
 <button type="button" class="active" data-lang="ro">RO</button><button type="button" data-lang="en">EN</button>
-</div><div class="cta"><a href="#contact" class="btn-oferta btn--primary" data-ro="Cere o ofertă" data-en="Request a quote">Cere o ofertă</a></div></div>
+</div><div class="cta"><a href="tel:+40758301841" class="btn-oferta btn--primary"><i class="fa-solid fa-phone" aria-hidden="true"></i> <span data-ro="Sună acum" data-en="Call now">Sună acum</span></a></div></div>
 <div class="hamburger" onclick="toggleMenu()">☰</div>
 </nav></header>
-<button id="scrollTopBtn" title="Înapoi sus"><i class="fa-solid fa-angle-up"></i></button>
+<button id="scrollTopBtn" title="Înapoi sus" aria-label="Înapoi sus"><i class="fa-solid fa-angle-up"></i></button>
+<a href="tel:+40758301841" id="floatingCallBtn" title="Sună acum" aria-label="Sună acum"><i class="fa-solid fa-phone" aria-hidden="true"></i></a>
 <main>
 <section class="page-hero" id="hero">
   <video autoplay muted loop playsinline class="hero-video" aria-hidden="true">
@@ -1040,25 +1065,28 @@ header.scrolled .lang-switch button.active{background:#fff;color:#000}
 <div class="eyebrow" data-ro="CONFECȚII METALICE • SUDURĂ MIG/MAG" data-en="METAL FABRICATION • MIG/MAG WELDING">CONFECȚII METALICE • SUDURĂ MIG/MAG</div>
 <h1 data-ro="Ansamble sudate realizate cu precizie" data-en="Precision-made welded assemblies">Ansamble sudate realizate cu precizie</h1>
 <p data-ro="Gevmet oferă soluții de confecții metalice și ansamble sudate, realizate în funcție de cerințele proiectului. De la componente individuale la structuri și subansamble, discutăm detaliile tehnice înainte de execuție." data-en="Gevmet provides metal fabrication and welded assembly solutions tailored to project requirements. From individual components to structures and subassemblies, we discuss the technical details before production.">Gevmet oferă soluții de confecții metalice și ansamble sudate, realizate în funcție de cerințele proiectului. De la componente individuale la structuri și subansamble, discutăm detaliile tehnice înainte de execuție.</p>
-<a class="btn btn--primary" href="#contact" style="display:inline-block;margin-top:25px;font-size:1rem" data-ro="Solicită o ofertă" data-en="Request a quote">Solicită o ofertă</a>
+<div class="hero-call-actions"><a class="btn btn--primary" href="#contact" style="display:inline-flex;align-items:center;font-size:1rem" data-ro="Solicită o ofertă" data-en="Request a quote">Solicită o ofertă</a><a class="call-btn" href="tel:+40758301841"><i class="fa-solid fa-phone" aria-hidden="true"></i><span data-ro="Sună acum" data-en="Call now">Sună acum</span></a></div>
 </div></section>
 <section id="despre" class="content-section">
 <h2 class="wow" data-ro="Despre acest serviciu" data-en="About this service">Despre acest serviciu</h2>
-<p class="section-intro wow" data-ro="Realizăm ansamble și componente metalice la comandă, urmărind funcționalitatea, precizia și cerințele fiecărei aplicații. Fiecare proiect este analizat în funcție de schițe, dimensiuni, materiale și modul de utilizare." data-en="We manufacture custom metal assemblies and components, with a focus on functionality, precision and the requirements of each application. Every project is reviewed according to drawings, dimensions, materials and intended use.">Realizăm ansamble și componente metalice la comandă, urmărind funcționalitatea, precizia și cerințele fiecărei aplicații. Fiecare proiect este analizat în funcție de schițe, dimensiuni, materiale și modul de utilizare.</p><div class="feature-grid"><article class="feature-card wow"><div class="icon">🔩</div><h3 data-ro="Structuri și cadre metalice" data-en="Metal frames and structures">Structuri și cadre metalice</h3><p data-ro="Realizăm elemente și structuri metalice în funcție de proiect, dimensiuni și utilizarea finală." data-en="We produce metal components and structures according to the project, dimensions and intended use.">Realizăm elemente și structuri metalice în funcție de proiect, dimensiuni și utilizarea finală.</p></article><article class="feature-card wow"><div class="icon">🛠️</div><h3 data-ro="Subansamble la comandă" data-en="Custom welded assemblies">Subansamble la comandă</h3><p data-ro="Componente pregătite pentru integrare în echipamente, instalații sau alte ansambluri." data-en="Components prepared for integration into equipment, installations or larger assemblies.">Componente pregătite pentru integrare în echipamente, instalații sau alte ansambluri.</p></article><article class="feature-card wow"><div class="icon">🔥</div><h3 data-ro="Sudură și îmbinare" data-en="Welding and joining">Sudură și îmbinare</h3><p data-ro="Lucrări de sudură MIG/MAG și operațiuni de îmbinare, în funcție de cerințele tehnice." data-en="MIG/MAG welding and joining operations, depending on technical requirements.">Lucrări de sudură MIG/MAG și operațiuni de îmbinare, în funcție de cerințele tehnice.</p></article><article class="feature-card wow"><div class="icon">📐</div><h3 data-ro="Execuție după schiță" data-en="Made to drawing">Execuție după schiță</h3><p data-ro="Putem analiza schițe, cote și documentații puse la dispoziție de client." data-en="We can review sketches, dimensions and technical documentation provided by the customer.">Putem analiza schițe, cote și documentații puse la dispoziție de client.</p></article><article class="feature-card wow"><div class="icon">⚙️</div><h3 data-ro="Prelucrări complementare" data-en="Additional processing">Prelucrări complementare</h3><p data-ro="La nevoie, proiectul poate include debitare, îndoire, finisare și asamblare." data-en="When needed, a project may include cutting, bending, finishing and assembly.">La nevoie, proiectul poate include debitare, îndoire, finisare și asamblare.</p></article><article class="feature-card wow"><div class="icon">🤝</div><h3 data-ro="Soluții adaptate" data-en="Project-specific solutions">Soluții adaptate</h3><p data-ro="Discutăm fiecare comandă pentru a identifica varianta potrivită de execuție." data-en="We discuss each order to identify a suitable production approach.">Discutăm fiecare comandă pentru a identifica varianta potrivită de execuție.</p></article></div></section>
+<p class="section-intro wow" data-ro="Realizăm ansamble și componente metalice la comandă, urmărind funcționalitatea, precizia și cerințele fiecărei aplicații. Fiecare proiect este analizat în funcție de schițe, dimensiuni, materiale și modul de utilizare." data-en="We manufacture custom metal assemblies and components, with a focus on functionality, precision and the requirements of each application. Every project is reviewed according to drawings, dimensions, materials and intended use.">Realizăm ansamble și componente metalice la comandă, urmărind funcționalitatea, precizia și cerințele fiecărei aplicații. Fiecare proiect este analizat în funcție de schițe, dimensiuni, materiale și modul de utilizare.</p><div class="feature-grid"><article class="feature-card wow"><div class="icon">🔩</div><h3 data-ro="Structuri și cadre metalice" data-en="Metal frames and structures">Structuri și cadre metalice</h3><p data-ro="Realizăm elemente și structuri metalice în funcție de proiect, dimensiuni și utilizarea finală." data-en="We produce metal components and structures according to the project, dimensions and intended use.">Realizăm elemente și structuri metalice în funcție de proiect, dimensiuni și utilizarea finală.</p></article><article class="feature-card wow"><div class="icon">🛠️</div><h3 data-ro="Subansamble la comandă" data-en="Custom welded assemblies">Subansamble la comandă</h3><p data-ro="Componente pregătite pentru integrare în echipamente, instalații sau alte ansambluri." data-en="Components prepared for integration into equipment, installations or larger assemblies.">Componente pregătite pentru integrare în echipamente, instalații sau alte ansambluri.</p></article><article class="feature-card wow"><div class="icon">🔥</div><h3 data-ro="Sudură și îmbinare" data-en="Welding and joining">Sudură și îmbinare</h3><p data-ro="Lucrări de sudură MIG/MAG și operațiuni de îmbinare, în funcție de cerințele tehnice." data-en="MIG/MAG welding and joining operations, depending on technical requirements.">Lucrări de sudură MIG/MAG și operațiuni de îmbinare, în funcție de cerințele tehnice.</p></article><article class="feature-card wow"><div class="icon">📐</div><h3 data-ro="Execuție după schiță" data-en="Made to drawing">Execuție după schiță</h3><p data-ro="Putem analiza schițe, cote și documentații puse la dispoziție de client." data-en="We can review sketches, dimensions and technical documentation provided by the customer.">Putem analiza schițe, cote și documentații puse la dispoziție de client.</p></article><article class="feature-card wow"><div class="icon">⚙️</div><h3 data-ro="Prelucrări complementare" data-en="Additional processing">Prelucrări complementare</h3><p data-ro="La nevoie, proiectul poate include debitare, îndoire, finisare și asamblare." data-en="When needed, a project may include cutting, bending, finishing and assembly.">La nevoie, proiectul poate include debitare, îndoire, finisare și asamblare.</p></article><article class="feature-card wow"><div class="icon">🤝</div><h3 data-ro="Soluții adaptate" data-en="Project-specific solutions">Soluții adaptate</h3><p data-ro="Discutăm fiecare comandă pentru a identifica varianta potrivită de execuție." data-en="We discuss each order to identify a suitable production approach.">Discutăm fiecare comandă pentru a identifica varianta potrivită de execuție.</p></article></div>
+<div class="gevmet-gallery wow" aria-label="Galerie foto ansamble sudate"><figure><img src="gevmet1.jpg" alt="Lucrare de confecții metalice Gevmet – imagine 1" loading="lazy"></figure><figure><img src="gevmet2.jpg" alt="Lucrare de confecții metalice Gevmet – imagine 2" loading="lazy"></figure></div>
+</section>
 <section id="servicii" class="content-section">
 <h2 class="wow" data-ro="Cum lucrăm" data-en="How we work">Cum lucrăm</h2>
 <p class="section-intro" data-ro="De la prima discuție până la finalizarea comenzii, urmărim o comunicare clară și o soluție potrivită cerințelor tehnice." data-en="From the first discussion to order completion, we focus on clear communication and a solution that meets the technical requirements.">De la prima discuție până la finalizarea comenzii, urmărim o comunicare clară și o soluție potrivită cerințelor tehnice.</p>
+<div class="gevmet-gallery gevmet-gallery--wide wow" aria-label="Galerie foto lucrări metalice"><figure><img src="gevmet3.jpg" alt="Lucrare metalică Gevmet – imagine 3" loading="lazy"></figure><figure><img src="gevmet4.jpg" alt="Lucrare metalică Gevmet – imagine 4" loading="lazy"></figure></div>
 <div class="process"><article class="process-card wow"><h3 data-ro="Analiză proiect" data-en="Project review">Analiză proiect</h3><p data-ro="Discutăm cerințele, dimensiunile și destinația produsului." data-en="We discuss the requirements, dimensions and intended use.">Discutăm cerințele, dimensiunile și destinația produsului.</p></article><article class="process-card wow"><h3 data-ro="Pregătire tehnică" data-en="Technical preparation">Pregătire tehnică</h3><p data-ro="Analizăm schițele sau documentația tehnică disponibilă." data-en="We review the available sketches or technical documentation.">Analizăm schițele sau documentația tehnică disponibilă.</p></article><article class="process-card wow"><h3 data-ro="Execuție" data-en="Production">Execuție</h3><p data-ro="Stabilim soluția de execuție și detaliile comenzii." data-en="We define the production solution and order details.">Stabilim soluția de execuție și detaliile comenzii.</p></article><article class="process-card wow"><h3 data-ro="Verificare și predare" data-en="Review and handover">Verificare și predare</h3><p data-ro="Executăm lucrarea și pregătim livrarea sau predarea." data-en="We complete the work and prepare it for delivery or collection.">Executăm lucrarea și pregătim livrarea sau predarea.</p></article></div><div class="page-cta wow"><div><h3 data-ro="Ai un proiect în minte?" data-en="Have a project in mind?">Ai un proiect în minte?</h3>
 <p data-ro="Trimite-ne detaliile și discutăm împreună soluția potrivită." data-en="Send us the details and we will discuss the right solution together.">Trimite-ne detaliile și discutăm împreună soluția potrivită.</p></div>
-<a class="btn btn--primary" href="#contact" data-ro="Cere o ofertă" data-en="Request a quote">Cere o ofertă</a></div>
+<div class="services__ctaActions"><a class="btn btn--primary" href="#contact" data-ro="Cere o ofertă" data-en="Request a quote">Cere o ofertă</a><a href="tel:+40758301841" class="call-btn"><i class="fa-solid fa-phone" aria-hidden="true"></i><span data-ro="Sună acum" data-en="Call now">Sună acum</span></a></div></div>
 <a class="back-home" href="index.html" data-ro="← Înapoi la pagina principală" data-en="← Back to homepage">← Înapoi la pagina principală</a>
 </section>
 <section id="contact"><div class="contact__container"><h2 class="wow" data-ro="Contact" data-en="Contact">Contact</h2>
 <div class="contact__single"><div class="wow contact__card"><h3 data-ro="Date de contact" data-en="Contact details">Date de contact</h3>
 <p><strong data-ro="Administrator:" data-en="Administrator:">Administrator:</strong> George Chiriac</p>
-<p><strong data-ro="Telefon:" data-en="Phone:">Telefon:</strong> 0758 301 841</p><p><strong>Email:</strong> gevmet@outlook.com</p>
+<p><strong data-ro="Telefon:" data-en="Phone:">Telefon:</strong> <a href="tel:+40758301841">0758 301 841</a></p><p><strong>Email:</strong> gevmet@outlook.com</p>
 <p><strong data-ro="Oraș:" data-en="City:">Oraș:</strong> Galați</p><p><strong data-ro="Adresă:" data-en="Address:">Adresă:</strong> Bld. George Coșbuc, nr. 217, Hala 4</p>
-<div class="contact__actions"><a class="btn btn--whatsapp" href="https://wa.me/40758301841" target="_blank" rel="noopener">💬 WhatsApp</a>
+<div class="contact__actions"><a class="call-btn" href="tel:+40758301841"><i class="fa-solid fa-phone" aria-hidden="true"></i><span data-ro="Sună acum" data-en="Call now">Sună acum</span></a><a class="btn btn--whatsapp" href="https://wa.me/40758301841" target="_blank" rel="noopener">💬 WhatsApp</a>
 <a class="btn btn--primary" href="mailto:gevmet@outlook.com">✉ <span data-ro="Trimite email" data-en="Send email">Trimite email</span></a></div>
 </div></div></div></section></main>
 <footer><p>© 2026 GEVMET SRL<br><a style="color:var(--accent)" target="_blank" href="https://www.scalamafaceri.ro/">scalamafaceri.ro</a></p></footer>
@@ -1075,7 +1103,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener("click",
 const topBtn=document.getElementById("scrollTopBtn");
 window.addEventListener("scroll",()=>topBtn.classList.toggle("show",window.scrollY>200));
 topBtn.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
-function setLanguage(lang){document.documentElement.lang=lang;document.querySelectorAll("[data-ro][data-en]").forEach(el=>el.textContent=el.dataset[lang]);document.querySelectorAll(".lang-switch button").forEach(b=>b.classList.toggle("active",b.dataset.lang===lang));document.title=lang==="en"?"Gevmet SRL – Welded Assemblies":"Gevmet SRL – Ansamble sudate";topBtn.title=lang==="en"?"Back to top":"Înapoi sus";}
+function setLanguage(lang){document.documentElement.lang=lang;document.querySelectorAll("[data-ro][data-en]").forEach(el=>el.textContent=el.dataset[lang]);document.querySelectorAll(".lang-switch button").forEach(b=>b.classList.toggle("active",b.dataset.lang===lang));document.title=lang==="en"?"Gevmet SRL – Welded Assemblies":"Gevmet SRL – Ansamble sudate";topBtn.title=lang==="en"?"Back to top":"Înapoi sus";const floating=document.getElementById("floatingCallBtn");if(floating){floating.title=lang==="en"?"Call now":"Sună acum";floating.setAttribute("aria-label",floating.title);}}
 document.querySelectorAll(".lang-switch button").forEach(b=>b.addEventListener("click",()=>setLanguage(b.dataset.lang)));
 new WOW({boxClass:"wow",animateClass:"animated",offset:100,mobile:true,live:true}).init();
 </script></body></html>
