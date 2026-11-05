@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Transformăm ideile în obiecte decorative metalice, realizate la comandă. Putem discuta modele pentru interior sau exterior, de la piese individuale la serii mici.">
-<meta name="keywords" content="ansamble sudate, sudura MIG MAG, confectii metalice, obiecte decorative metal, Galati">
+<meta name="keywords" content="obiecte decorative metal, decoratiuni metalice, confectii metalice, Galati">
 <meta name="author" content="Gevmet SRL"><meta name="robots" content="index, follow">
 <meta property="og:title" content="Gevmet SRL – Obiecte decorative">
 <meta property="og:description" content="Transformăm ideile în obiecte decorative metalice, realizate la comandă. Putem discuta modele pentru interior sau exterior, de la piese individuale la serii mici."><meta property="og:type" content="website">
@@ -189,7 +189,7 @@ a {
   }
 }
 
-
+    
     
 
 /* NAV */
@@ -961,7 +961,11 @@ header.scrolled .lang-switch button.active{background:#fff;color:#000}
 .navbar{gap:clamp(18px,4vw,70px);width:100%;max-width:1500px}
 .nav-right{display:flex;align-items:center;gap:18px}
 .page-hero{min-height:72vh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;border-bottom:1px solid var(--accent);padding:120px 20px 60px}
-.page-hero:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(0,0,0,.82),rgba(0,0,0,.55));background-color:#242424}\n.page-hero .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}\n.page-hero-content{display:grid;grid-template-columns:.8fr 1.5fr;align-items:center;gap:25px}\n.page-hero-logo img{display:block;width:100%;max-width:320px;padding:20px;border-radius:16px}\n.page-hero-copy{min-width:0}
+.page-hero:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(0,0,0,.82),rgba(0,0,0,.55));background-color:#242424}
+.page-hero .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.page-hero-content{display:grid;grid-template-columns:.8fr 1.5fr;align-items:center;gap:25px}
+.page-hero-logo img{display:block;width:100%;max-width:320px;padding:20px;border-radius:16px}
+.page-hero-copy{min-width:0}
 .page-hero-content{position:relative;z-index:2;max-width:1100px;width:100%;padding:35px;background:#0009;border:1px solid var(--accent);color:#fff}
 .page-hero h1{font-size:clamp(2.2rem,5vw,4rem);line-height:1.08;color:#fff;margin-bottom:18px}
 .page-hero p{font-size:1.25rem;line-height:1.6;max-width:850px;color:#eee}
@@ -987,15 +991,35 @@ header.scrolled .lang-switch button.active{background:#fff;color:#000}
 @media(max-width:900px){.feature-grid{grid-template-columns:1fr 1fr}.process{grid-template-columns:1fr 1fr}.navbar{gap:15px}.nav-right{gap:8px}}
 @media(max-width:768px){.navbar{justify-content:space-between;padding:5px 10px}.nav-right{margin-right:40px}.lang-switch button{padding:6px}.page-hero-content{padding:28px 20px;grid-template-columns:1fr;text-align:center}.page-hero-logo img{max-width:210px;margin:auto}.page-hero{min-height:68vh}.feature-grid,.process{grid-template-columns:1fr}.page-cta{flex-direction:column;text-align:center}.cta{display:none}}
 
+
+/* Galerie foto Gevmet */
+.gevmet-gallery {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin:32px 0 8px;}
+.gevmet-gallery figure {overflow:hidden;border-radius:16px;border:1px solid #e3e3e3;background:#f5f5f5;}
+.gevmet-gallery img {display:block;width:100%;height:280px;object-fit:cover;transition:transform .35s ease;}
+.gevmet-gallery img:hover {transform:scale(1.035);}
+.gevmet-gallery--wide {margin:20px 0 35px;}
+.page-hero .hero-video {z-index:0;}
+.page-hero-content {position:relative;z-index:2;}
+.page-hero .hero-call-actions {align-items:center;}
+.page-hero .hero-call-actions .btn {padding:14px 24px;line-height:1.3;}
+.page-cta .services__ctaActions .btn {display:inline-flex;align-items:center;justify-content:center;padding:14px 24px;}
+@media(max-width:768px) {
+  .gevmet-gallery {grid-template-columns:1fr;gap:15px;}
+  .gevmet-gallery img {height:auto;aspect-ratio:4/3;object-fit:cover;}
+  .page-hero .hero-call-actions {justify-content:center;}
+  .page-hero .hero-call-actions a {width:100%;max-width:300px;}
+  .page-cta .services__ctaActions {width:100%;}
+}
+
 </style></head><body>
 
-<script>
+    <script>
 (function () {
     const domain = "https://gevmet.ro";
 
     // Păstrează URL-ul principal în bara de adrese
     if (window.top === window.self && window.location.hostname === "gevmet.ro") {
-        history.replaceState(null, "", "/");
+        history.replaceState(null, "", window.location.pathname + window.location.search);
     }
 
     // Interceptează navigarea între paginile HTML
@@ -1027,10 +1051,11 @@ header.scrolled .lang-switch button.active{background:#fff;color:#000}
 </ul>
 <div class="nav-right"><div class="lang-switch" aria-label="Language">
 <button type="button" class="active" data-lang="ro">RO</button><button type="button" data-lang="en">EN</button>
-</div><div class="cta"><a href="#contact" class="btn-oferta btn--primary" data-ro="Cere o ofertă" data-en="Request a quote">Cere o ofertă</a></div></div>
+</div><div class="cta"><a href="tel:+40758301841" class="btn-oferta btn--primary"><i class="fa-solid fa-phone" aria-hidden="true"></i> <span data-ro="Sună acum" data-en="Call now">Sună acum</span></a></div></div>
 <div class="hamburger" onclick="toggleMenu()">☰</div>
 </nav></header>
-<button id="scrollTopBtn" title="Înapoi sus"><i class="fa-solid fa-angle-up"></i></button>
+<button id="scrollTopBtn" title="Înapoi sus" aria-label="Înapoi sus"><i class="fa-solid fa-angle-up"></i></button>
+<a href="tel:+40758301841" id="floatingCallBtn" title="Sună acum" aria-label="Sună acum"><i class="fa-solid fa-phone" aria-hidden="true"></i></a>
 <main>
 <section class="page-hero" id="hero">
   <video autoplay muted loop playsinline class="hero-video" aria-hidden="true">
@@ -1040,25 +1065,27 @@ header.scrolled .lang-switch button.active{background:#fff;color:#000}
 <div class="eyebrow" data-ro="DESIGN METALIC • LUCRĂRI LA COMANDĂ" data-en="METAL DESIGN • CUSTOM-MADE WORKS">DESIGN METALIC • LUCRĂRI LA COMANDĂ</div>
 <h1 data-ro="Obiecte decorative din metal" data-en="Decorative metalwork">Obiecte decorative din metal</h1>
 <p data-ro="Transformăm ideile în obiecte decorative metalice, realizate la comandă. Putem discuta modele pentru interior sau exterior, de la piese individuale la serii mici." data-en="We turn ideas into made-to-order decorative metal pieces. We can discuss designs for indoor or outdoor spaces, from individual items to small batches.">Transformăm ideile în obiecte decorative metalice, realizate la comandă. Putem discuta modele pentru interior sau exterior, de la piese individuale la serii mici.</p>
-<a class="btn btn--primary" href="#contact" style="display:inline-block;margin-top:25px;font-size:1rem" data-ro="Solicită o ofertă" data-en="Request a quote">Solicită o ofertă</a>
+<div class="hero-call-actions"><a class="btn btn--primary" href="#contact" style="display:inline-flex;align-items:center;font-size:1rem" data-ro="Solicită o ofertă" data-en="Request a quote">Solicită o ofertă</a><a class="call-btn" href="tel:+40758301841"><i class="fa-solid fa-phone" aria-hidden="true"></i><span data-ro="Sună acum" data-en="Call now">Sună acum</span></a></div>
 </div></section>
 <section id="despre" class="content-section">
 <h2 class="wow" data-ro="Despre acest serviciu" data-en="About this service">Despre acest serviciu</h2>
-<p class="section-intro wow" data-ro="Fie că ai deja un model sau doar o idee, putem analiza împreună posibilitățile de realizare. Forma, dimensiunile, materialul și finisajul se stabilesc în funcție de proiect." data-en="Whether you already have a design or just an idea, we can explore the production possibilities together. Shape, dimensions, material and finish are defined according to the project.">Fie că ai deja un model sau doar o idee, putem analiza împreună posibilitățile de realizare. Forma, dimensiunile, materialul și finisajul se stabilesc în funcție de proiect.</p><div class="feature-grid"><article class="feature-card wow"><div class="icon">✨</div><h3 data-ro="Decorațiuni metalice" data-en="Metal decorations">Decorațiuni metalice</h3><p data-ro="Obiecte decorative realizate la comandă, cu forme și dimensiuni adaptate spațiului." data-en="Made-to-order decorative pieces with shapes and dimensions suited to the space.">Obiecte decorative realizate la comandă, cu forme și dimensiuni adaptate spațiului.</p></article><article class="feature-card wow"><div class="icon">🏡</div><h3 data-ro="Interior și exterior" data-en="Indoor and outdoor use">Interior și exterior</h3><p data-ro="Idei decorative pentru locuințe, curți, grădini, terase sau spații comerciale." data-en="Decorative ideas for homes, yards, gardens, terraces and commercial spaces.">Idei decorative pentru locuințe, curți, grădini, terase sau spații comerciale.</p></article><article class="feature-card wow"><div class="icon">✏️</div><h3 data-ro="Modele personalizate" data-en="Custom designs">Modele personalizate</h3><p data-ro="Pornim de la o idee, o schiță sau un model de referință oferit de client." data-en="We can start from an idea, a sketch or a reference design supplied by the customer.">Pornim de la o idee, o schiță sau un model de referință oferit de client.</p></article><article class="feature-card wow"><div class="icon">🪵</div><h3 data-ro="Metal în combinații creative" data-en="Metal in creative combinations">Metal în combinații creative</h3><p data-ro="Elementele metalice pot fi integrate în proiecte cu lemn sau alte materiale, în funcție de concept." data-en="Metal elements can be incorporated into projects with wood or other materials, depending on the concept.">Elementele metalice pot fi integrate în proiecte cu lemn sau alte materiale, în funcție de concept.</p></article><article class="feature-card wow"><div class="icon">🎨</div><h3 data-ro="Forme și finisaje" data-en="Shapes and finishes">Forme și finisaje</h3><p data-ro="Aspectul final se stabilește în funcție de model, material și finisajul dorit." data-en="The final appearance is defined by the design, material and desired finish.">Aspectul final se stabilește în funcție de model, material și finisajul dorit.</p></article><article class="feature-card wow"><div class="icon">🎁</div><h3 data-ro="Piese unicat și serii mici" data-en="One-off pieces and small batches">Piese unicat și serii mici</h3><p data-ro="Putem discuta atât piese individuale, cât și realizarea unor serii mici." data-en="We can discuss both individual pieces and small production batches.">Putem discuta atât piese individuale, cât și realizarea unor serii mici.</p></article></div></section>
+<p class="section-intro wow" data-ro="Fie că ai deja un model sau doar o idee, putem analiza împreună posibilitățile de realizare. Forma, dimensiunile, materialul și finisajul se stabilesc în funcție de proiect." data-en="Whether you already have a design or just an idea, we can explore the production possibilities together. Shape, dimensions, material and finish are defined according to the project.">Fie că ai deja un model sau doar o idee, putem analiza împreună posibilitățile de realizare. Forma, dimensiunile, materialul și finisajul se stabilesc în funcție de proiect.</p><div class="feature-grid"><article class="feature-card wow"><div class="icon">✨</div><h3 data-ro="Decorațiuni metalice" data-en="Metal decorations">Decorațiuni metalice</h3><p data-ro="Obiecte decorative realizate la comandă, cu forme și dimensiuni adaptate spațiului." data-en="Made-to-order decorative pieces with shapes and dimensions suited to the space.">Obiecte decorative realizate la comandă, cu forme și dimensiuni adaptate spațiului.</p></article><article class="feature-card wow"><div class="icon">🏡</div><h3 data-ro="Interior și exterior" data-en="Indoor and outdoor use">Interior și exterior</h3><p data-ro="Idei decorative pentru locuințe, curți, grădini, terase sau spații comerciale." data-en="Decorative ideas for homes, yards, gardens, terraces and commercial spaces.">Idei decorative pentru locuințe, curți, grădini, terase sau spații comerciale.</p></article><article class="feature-card wow"><div class="icon">✏️</div><h3 data-ro="Modele personalizate" data-en="Custom designs">Modele personalizate</h3><p data-ro="Pornim de la o idee, o schiță sau un model de referință oferit de client." data-en="We can start from an idea, a sketch or a reference design supplied by the customer.">Pornim de la o idee, o schiță sau un model de referință oferit de client.</p></article><article class="feature-card wow"><div class="icon">🪵</div><h3 data-ro="Metal în combinații creative" data-en="Metal in creative combinations">Metal în combinații creative</h3><p data-ro="Elementele metalice pot fi integrate în proiecte cu lemn sau alte materiale, în funcție de concept." data-en="Metal elements can be incorporated into projects with wood or other materials, depending on the concept.">Elementele metalice pot fi integrate în proiecte cu lemn sau alte materiale, în funcție de concept.</p></article><article class="feature-card wow"><div class="icon">🎨</div><h3 data-ro="Forme și finisaje" data-en="Shapes and finishes">Forme și finisaje</h3><p data-ro="Aspectul final se stabilește în funcție de model, material și finisajul dorit." data-en="The final appearance is defined by the design, material and desired finish.">Aspectul final se stabilește în funcție de model, material și finisajul dorit.</p></article><article class="feature-card wow"><div class="icon">🎁</div><h3 data-ro="Piese unicat și serii mici" data-en="One-off pieces and small batches">Piese unicat și serii mici</h3><p data-ro="Putem discuta atât piese individuale, cât și realizarea unor serii mici." data-en="We can discuss both individual pieces and small production batches.">Putem discuta atât piese individuale, cât și realizarea unor serii mici.</p></article></div>
+<div class="gevmet-gallery wow" aria-label="Galerie foto obiecte decorative"><figure><img src="gevmet5.jpg" alt="Obiect decorativ metalic Gevmet – imagine 1" loading="lazy"></figure><figure><img src="gevmet6.jpg" alt="Obiect decorativ metalic Gevmet – imagine 2" loading="lazy"></figure></div>
+</section>
 <section id="servicii" class="content-section">
 <h2 class="wow" data-ro="Cum lucrăm" data-en="How we work">Cum lucrăm</h2>
 <p class="section-intro" data-ro="Fiecare obiect pornește de la conceptul tău. Trimite-ne o fotografie, o schiță sau câteva detalii despre ceea ce îți dorești." data-en="Every piece starts with your concept. Send us a photo, a sketch or a few details about what you have in mind.">Fiecare obiect pornește de la conceptul tău. Trimite-ne o fotografie, o schiță sau câteva detalii despre ceea ce îți dorești.</p>
 <div class="process"><article class="process-card wow"><h3 data-ro="Analiză proiect" data-en="Project review">Analiză proiect</h3><p data-ro="Discutăm cerințele, dimensiunile și destinația produsului." data-en="We discuss the requirements, dimensions and intended use.">Discutăm cerințele, dimensiunile și destinația produsului.</p></article><article class="process-card wow"><h3 data-ro="Pregătire tehnică" data-en="Technical preparation">Pregătire tehnică</h3><p data-ro="Analizăm schițele sau documentația tehnică disponibilă." data-en="We review the available sketches or technical documentation.">Analizăm schițele sau documentația tehnică disponibilă.</p></article><article class="process-card wow"><h3 data-ro="Execuție" data-en="Production">Execuție</h3><p data-ro="Stabilim soluția de execuție și detaliile comenzii." data-en="We define the production solution and order details.">Stabilim soluția de execuție și detaliile comenzii.</p></article><article class="process-card wow"><h3 data-ro="Verificare și predare" data-en="Review and handover">Verificare și predare</h3><p data-ro="Executăm lucrarea și pregătim livrarea sau predarea." data-en="We complete the work and prepare it for delivery or collection.">Executăm lucrarea și pregătim livrarea sau predarea.</p></article></div><div class="page-cta wow"><div><h3 data-ro="Ai un proiect în minte?" data-en="Have a project in mind?">Ai un proiect în minte?</h3>
 <p data-ro="Trimite-ne detaliile și discutăm împreună soluția potrivită." data-en="Send us the details and we will discuss the right solution together.">Trimite-ne detaliile și discutăm împreună soluția potrivită.</p></div>
-<a class="btn btn--primary" href="#contact" data-ro="Cere o ofertă" data-en="Request a quote">Cere o ofertă</a></div>
+<div class="services__ctaActions"><a class="btn btn--primary" href="#contact" data-ro="Cere o ofertă" data-en="Request a quote">Cere o ofertă</a><a href="tel:+40758301841" class="call-btn"><i class="fa-solid fa-phone" aria-hidden="true"></i><span data-ro="Sună acum" data-en="Call now">Sună acum</span></a></div></div>
 <a class="back-home" href="index.html" data-ro="← Înapoi la pagina principală" data-en="← Back to homepage">← Înapoi la pagina principală</a>
 </section>
 <section id="contact"><div class="contact__container"><h2 class="wow" data-ro="Contact" data-en="Contact">Contact</h2>
 <div class="contact__single"><div class="wow contact__card"><h3 data-ro="Date de contact" data-en="Contact details">Date de contact</h3>
 <p><strong data-ro="Administrator:" data-en="Administrator:">Administrator:</strong> George Chiriac</p>
-<p><strong data-ro="Telefon:" data-en="Phone:">Telefon:</strong> 0758 301 841</p><p><strong>Email:</strong> gevmet@outlook.com</p>
+<p><strong data-ro="Telefon:" data-en="Phone:">Telefon:</strong> <a href="tel:+40758301841">0758 301 841</a></p><p><strong>Email:</strong> gevmet@outlook.com</p>
 <p><strong data-ro="Oraș:" data-en="City:">Oraș:</strong> Galați</p><p><strong data-ro="Adresă:" data-en="Address:">Adresă:</strong> Bld. George Coșbuc, nr. 217, Hala 4</p>
-<div class="contact__actions"><a class="btn btn--whatsapp" href="https://wa.me/40758301841" target="_blank" rel="noopener">💬 WhatsApp</a>
+<div class="contact__actions"><a class="call-btn" href="tel:+40758301841"><i class="fa-solid fa-phone" aria-hidden="true"></i><span data-ro="Sună acum" data-en="Call now">Sună acum</span></a><a class="btn btn--whatsapp" href="https://wa.me/40758301841" target="_blank" rel="noopener">💬 WhatsApp</a>
 <a class="btn btn--primary" href="mailto:gevmet@outlook.com">✉ <span data-ro="Trimite email" data-en="Send email">Trimite email</span></a></div>
 </div></div></div></section></main>
 <footer><p>© 2026 GEVMET SRL<br><a style="color:var(--accent)" target="_blank" href="https://www.scalamafaceri.ro/">scalamafaceri.ro</a></p></footer>
@@ -1075,7 +1102,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener("click",
 const topBtn=document.getElementById("scrollTopBtn");
 window.addEventListener("scroll",()=>topBtn.classList.toggle("show",window.scrollY>200));
 topBtn.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
-function setLanguage(lang){document.documentElement.lang=lang;document.querySelectorAll("[data-ro][data-en]").forEach(el=>el.textContent=el.dataset[lang]);document.querySelectorAll(".lang-switch button").forEach(b=>b.classList.toggle("active",b.dataset.lang===lang));document.title=lang==="en"?"Gevmet SRL – Decorative Objects":"Gevmet SRL – Obiecte decorative";topBtn.title=lang==="en"?"Back to top":"Înapoi sus";}
+function setLanguage(lang){document.documentElement.lang=lang;document.querySelectorAll("[data-ro][data-en]").forEach(el=>el.textContent=el.dataset[lang]);document.querySelectorAll(".lang-switch button").forEach(b=>b.classList.toggle("active",b.dataset.lang===lang));document.title=lang==="en"?"Gevmet SRL – Decorative Objects":"Gevmet SRL – Obiecte decorative";topBtn.title=lang==="en"?"Back to top":"Înapoi sus";const floating=document.getElementById("floatingCallBtn");if(floating){floating.title=lang==="en"?"Call now":"Sună acum";floating.setAttribute("aria-label",floating.title);}}
 document.querySelectorAll(".lang-switch button").forEach(b=>b.addEventListener("click",()=>setLanguage(b.dataset.lang)));
 new WOW({boxClass:"wow",animateClass:"animated",offset:100,mobile:true,live:true}).init();
 </script></body></html>
