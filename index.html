@@ -338,10 +338,65 @@ data-en="Gevmet SRL is a social enterprise specializing in laser cutting and met
   referrerpolicy="no-referrer-when-downgrade"
   allowfullscreen>
 </iframe>
-              <a href="https://www.google.com/maps/search/?api=1&query=45.440139%2C28.034694"
-   target="_blank"
-   rel="noopener noreferrer">
-   📍 Vezi locația pe Google Maps
+<style>
+.gevmet-location-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 28px;
+    background: #2d77c6;
+    color: #ffffff !important;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: inherit;
+    text-decoration: none !important;
+    border: 2px solid #2d77c6;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.gevmet-location-btn:hover {
+    background: #ffffff;
+    color: #2d77c6 !important;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(45, 119, 198, 0.25);
+}
+
+.gevmet-location-btn svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .gevmet-location-btn {
+        width: 100%;
+        padding: 16px 20px;
+        font-size: 15px;
+        box-sizing: border-box;
+    }
+}
+</style>
+
+<a
+  href="https://www.google.com/maps/dir/?api=1&destination=45.440139%2C28.034694"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="gevmet-location-btn"
+>
+  <svg xmlns="http://www.w3.org/2000/svg"
+       viewBox="0 0 24 24"
+       fill="none"
+       stroke="currentColor"
+       stroke-width="2"
+       stroke-linecap="round"
+       stroke-linejoin="round">
+    <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/>
+    <circle cx="12" cy="10" r="3"/>
+  </svg>
+  Vezi locația
 </a>
 
             </div>
